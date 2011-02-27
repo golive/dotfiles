@@ -1,0 +1,3 @@
+[submodule "bash/bash.symlink/extra_scripts/bashmarks"]
+	path = bash/bash.symlink/extra_scripts/bashmarks
+	url = git://github.com/huyng/bashmarks.git
