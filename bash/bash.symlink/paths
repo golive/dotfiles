@@ -1,0 +1,4 @@
+# we want the various sbins on the path along with /usr/local/bin
+export PATH=".:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:$BASHDIR/bin:/opt/local/bin:/opt/local/sbin:/usr/local/git/bin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export CDPATH=".:~:~/webs"

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export BASHDIR=~/Documents/Dropbox/dotfiles
+
+source ~/.bash/basic
+source ~/.bash/completions
+source ~/.bash/extras
+source ~/.bash/paths
+source ~/.bash/prompt
+
+if [ -f ~/.localrc ]; then
+  . ~/.localrc
+fi
+
+for file in `ls $BASHDIR/**/*.bash` ; do
+  . $file
+done
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

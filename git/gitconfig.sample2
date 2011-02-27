@@ -1,0 +1,20 @@
+[user]
+	name = Gerbert Olivé
+	email = golive@imim.es
+[core]
+	excludesfile = /Users/golive/.gitignore
+	editor = mate -w
+	quotepath = false
+[alias]
+	st = status -s
+	ci = commit
+	br = branch
+	co = checkout
+	raw = show -s --pretty=raw
+[apply]
+	whitespace = nowarn
+[color]
+	status = auto
+	interactive = auto
+	diff = auto
+	branch = auto
