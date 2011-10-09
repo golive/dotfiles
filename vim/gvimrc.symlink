@@ -1,0 +1,36 @@
+" Fullscreen takes up entire screen
+" set fuoptions=maxhorz,maxvert
+
+" Start without the toolbar
+set guioptions-=T
+set gfn=Monaco:h13
+
+"colorscheme & font
+colors molokai
+
+" set relativenumber
+
+"positioned
+" winpos 0 0
+set anti " antialiasing
+set guioptions=gemc
+set ch=1
+
+" Autosave on focus lost
+" au FocusLost * :wa
+
+if has("gui_macvim")
+  " Command-Shift-F for Ack
+  " au GUIEnter * set fullscreen
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-K>
+  map <D-F> :Ack<space>
+  " Full screen mode
+endif
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+" Load local config
+" if filereadable(".gvimrclocal")
+"   source .gvimrclocal
+" endif
