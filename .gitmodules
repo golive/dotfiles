@@ -1,3 +1,6 @@
 [submodule "bash/bash.symlink/extra_scripts/bashmarks"]
 	path = bash/bash.symlink/extra_scripts/bashmarks
 	url = git://github.com/huyng/bashmarks.git
+[submodule "vim/vim.symlink/bundle/snipmate.vim"]
+	path = vim/vim.symlink/bundle/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim.git
