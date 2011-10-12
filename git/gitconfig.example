@@ -21,14 +21,21 @@
 	unstage = reset HEAD
 	subadd = !sh -c 'git submodule add $(git config -f"$0".git/config remote.origin.url) "$0"'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	who = shortlog -n -s --no-merges
+	st = status -s
+	ci = commit
+	cim = commit -m
+	br = branch
+	raw = show -s --pretty=raw
 [format]
 	# pretty = format:"%Cblue%ar%Creset\t%s"
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+	interactive = auto
 [core]
-	excludesfile = /Users/mislav/.gitignore
+	excludesfile = ~/.gitignore
 	editor = mate -w
 [mirror]
 	summary = true
