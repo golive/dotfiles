@@ -56,7 +56,6 @@
 
 # /Pretty methods
 
-
 export PS1="${PURPLE}\$(rvm_prompt)${BGREEN}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${BBLUE}$ ${NORMAL}"
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}

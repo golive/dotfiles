@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export BASHDIR=~/Documents/Dropbox/dotfiles
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 source ~/.bash/basic
 source ~/.bash/completions
@@ -15,6 +16,5 @@ fi
 for file in `ls $BASHDIR/**/*.bash` ; do
   . $file
 done
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

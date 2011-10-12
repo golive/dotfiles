@@ -44,6 +44,13 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 alias rvmrld='rvm rvmrc load'
 alias migrate='rake db:migrate'
+alias be='bundle exec'
+alias mvim-='mvim - -f'
+
+git_co () {
+  git checkout $*
+  rvm rvmrc load
+}
 
 # ----------------------------------------------------------------------
 # ENVIRONMENT CONFIGURATION
@@ -83,7 +90,7 @@ HAVE_GVIM=$(command -v gvim)
 
 # EDITOR
 #test -n "$HAVE_VIM" && EDITOR=vim || EDITOR=vi
-export EDITOR="mate -w"
+export EDITOR="mvim"
 
 # PAGER
 if test -n "$(command -v less)" ; then
