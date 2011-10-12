@@ -1,6 +1,6 @@
 [user]
-	name = Mislav Marohnić
-	email = mislav.marohnic@gmail.com
+	name = Gerbert Olivé
+	email = gerbert.olive@gmail.com
 [apply]
 	whitespace = nowarn
 [alias]
@@ -36,7 +36,7 @@
 	interactive = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = mate -w
+	editor = mvim -f -c start
 [mirror]
 	summary = true
 [branch]
