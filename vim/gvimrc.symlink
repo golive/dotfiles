@@ -6,7 +6,7 @@ set guioptions-=T
 set gfn=Monaco:h13
 
 "colorscheme & font
-colors molokai
+colors solarized
 
 " set relativenumber
 
@@ -27,7 +27,7 @@ if has("gui_macvim")
   " Full screen mode
 endif
 
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 " Load local config

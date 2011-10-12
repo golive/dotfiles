@@ -6,6 +6,7 @@
 filetype off
 
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 "This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -101,10 +102,12 @@ set statusline+=\ %P    "percent through file
 " -------------------------
 "Visual
 set ruler                  " show the cursor position all the time
+set cursorline             " highlight current line
+" set gcr=a:blinkon0         " disable blinking cursor
 set nolazyredraw           " turn off lazy redraw
 set wildmenu               " turn on wild menu
 set wildmode=list:longest,full
-set ch=2                   " command line height
+" set ch=2                   " command line height
 " set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
@@ -114,13 +117,13 @@ set showmatch             " brackets/braces that is
 set mat=5                 " duration to show matching brace (1/10 sec)
 set laststatus=2          " always show the status line
 set ignorecase            " ignore case when searching
-set nohlsearch            " don't highlight searches
+set smartcase             " case only matters with mixed case expressions
 set visualbell            " shut the fuck up
 set showcmd               " show incomplete cmds down the bottom
 set showmode              " show current mode down the bottom
 set incsearch             " find the next match as we type the search
 set hlsearch              " hilight searches by default
-set nowrap                " wrap lines
+set nowrap                " don't wrap lines
 set linebreak             " wrap lines at convenient points
 set autoread              " reload files (no local changes only)
 " -------------------------
@@ -132,6 +135,8 @@ set autoread              " reload files (no local changes only)
 " -------------------------
 " remap <LEADER> to ',' (instead of '\')
 let mapleader = ","
+" escape with ñ
+imap ñ <ESC>
 
 map <s-D-Left> <C-w><Left>
 map <s-D-Right> <C-w><Right>
@@ -182,7 +187,7 @@ map <Leader>sv :RSview
 map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
 
-map <Leader>l <D-Up>i# -*- encoding: utf-8 -*-<CR><Esc>
+map <Leader>l <D-Up>i# encoding: utf-8<CR><Esc>
 
 " -------------------------
 " MAPPINGS
@@ -237,6 +242,9 @@ set t_Co=256
 
 "hide buffers when not displayed
 set hidden
+
+" utf-8 default encoding
+set enc=utf-8
 
 "ctags
 set tags=ctags
@@ -340,6 +348,7 @@ augroup FileExplorer
 augroup END
 
 let g:NERDTreeHijackNetrw = 0
+let g:CommandTMaxHeight=10
 
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
@@ -348,6 +357,7 @@ function s:CdIfDirectory(directory)
   endif
 endfunction
 
+" Max height of
 " NERDTree utility function
 function s:UpdateNERDTree(stay)
   if exists("t:NERDTreeBufName")
@@ -370,7 +380,7 @@ autocmd BufNewFile,BufRead *.thor setf ruby
 " :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\\%>80v.\\+', -1)
 
 " Local config
-" if filereadable("~/.vimrclocal")
-"   source ~/.vimrclocal
-" endif
+if filereadable(".vimrc.local")
+  source .vimrc.local
+endif
 
