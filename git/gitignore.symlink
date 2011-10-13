@@ -6,4 +6,3 @@
 .*.swp
 *.tmproj
 .vimrc.local
-doc/tags

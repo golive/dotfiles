@@ -4,12 +4,16 @@
 [submodule "vim/vim.symlink/bundle/snipmate.vim"]
 	path = vim/vim.symlink/bundle/snipmate.vim
 	url = git://github.com/msanders/snipmate.vim.git
+	ignore = untracked
 [submodule "vim/vim.symlink/bundle/matchit"]
 	path = vim/vim.symlink/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
+	ignore = untracked
 [submodule "vim/vim.symlink/bundle/textobj-user"]
 	path = vim/vim.symlink/bundle/textobj-user
 	url = git://github.com/kana/vim-textobj-user.git
+	ignore = untracked
 [submodule "vim/vim.symlink/bundle/textobj-rubyblock"]
 	path = vim/vim.symlink/bundle/textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+	ignore = untracked
