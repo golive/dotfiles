@@ -90,7 +90,7 @@ HAVE_GVIM=$(command -v gvim)
 
 # EDITOR
 #test -n "$HAVE_VIM" && EDITOR=vim || EDITOR=vi
-export EDITOR="mvim"
+export EDITOR="mvim -f"
 
 # PAGER
 if test -n "$(command -v less)" ; then
