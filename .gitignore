@@ -3,3 +3,4 @@ git/gitconfig.symlink
 ec2/ec2.symlink
 zsh/local.zsh
 vim/*vimrclocal
+tags

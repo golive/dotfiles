@@ -5,4 +5,5 @@
 ~*
 .*.swp
 *.tmproj
-.rvmrc
+.vimrc.local
+doc/tags
