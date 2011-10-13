@@ -187,7 +187,7 @@ map <Leader>sv :RSview
 map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
 
-map <Leader>l <D-Up>i# encoding: utf-8<CR><Esc>
+map <Leader>e <D-Up>O# encoding: utf-8<CR><Esc>
 
 " -------------------------
 " MAPPINGS
@@ -210,12 +210,15 @@ set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+
+"stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~,.git,*.swp,*.jpg,*.png,*.gif
 
 "display tabs and trailing spaces
 set list
-set listchars=tab:‣⋅,trail:⋅,nbsp:⋅
+set listchars=tab:‣\ ,trail:⋅,nbsp:⋅
 " set listchars+=eol:¬,extends:>,precedes:<
+nmap <leader>i :set list!<CR>
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -231,6 +234,7 @@ filetype indent on
 "turn on syntax highlighting
 syntax on
 
+" activate omnicomplete
 set ofu=syntaxcomplete#Complete
 let g:acp_behaviorKeywordLength = 4
 
@@ -288,6 +292,13 @@ nnoremap Y y$
 map <C-J> :m +1 <CR>
 map <C-K> :m -2 <CR>
 
+" switch between buffers
+map <C-Tab> :bn<CR>
+map <C-s-Tab> :bp<CR>
+
+" save buffer and close
+nmap <Leader>wq :up<CR>:bd<CR>
+
 " move faster around up and down
 nnoremap <space> :+15<cr>
 nnoremap <C-Down> :+15<cr>
@@ -296,7 +307,6 @@ nnoremap <s-space> :-15<cr>
 nnoremap <C-Up> :-15<cr>
 inoremap <C-Up> :-15<cr>
 
-" Experiment so select with shift-arrows
 nnoremap <s-Right> v<Right>
 inoremap <s-Right> <Esc><Right>v<Right>
 vnoremap <s-Right> <Right>
@@ -305,12 +315,17 @@ vnoremap <s-Right> <Right>
 vmap D y'>p
 
 "one-key indentation
-nmap > >>
-nmap < <<
+nmap <Tab> >>
+nmap <S-Tab> <<
 
+" Indent selection
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+" Experiment so select with shift-arrows
 "Easier beginning/end of line
-map H ^
-map L $
+map <Leader>h ^
+map <Leader>l $
 
 " -------------------
 " /KEYBINDS
@@ -348,11 +363,15 @@ augroup FileExplorer
   au!
 augroup END
 
+" Source the vimrc file after saving it
+" autocmd bufwritepost .vimrc source ~/.vimrc
+nmap <leader>v :tabedit ~/.vimrc<CR>
+
 let g:NERDTreeHijackNetrw = 0
 let g:CommandTMaxHeight=10
 
 " If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
+function! s:CdIfDirectory(directory)
   if isdirectory(a:directory)
     call ChangeDirectory(a:directory)
   endif
@@ -360,7 +379,7 @@ endfunction
 
 " Max height of
 " NERDTree utility function
-function s:UpdateNERDTree(stay)
+function! s:UpdateNERDTree(stay)
   if exists("t:NERDTreeBufName")
     if bufwinnr(t:NERDTreeBufName) != -1
       NERDTree
