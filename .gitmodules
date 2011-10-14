@@ -21,3 +21,7 @@
 	path = vim/vim.symlink/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/command-t"]
+	path = vim/vim.symlink/bundle/command-t
+	url = git://github.com/wincent/Command-T.git
+	ignore = untracked
