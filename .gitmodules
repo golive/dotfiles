@@ -25,3 +25,7 @@
 	path = vim/vim.symlink/bundle/command-t
 	url = git://github.com/wincent/Command-T.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/fugitive"]
+	path = vim/vim.symlink/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+	ignore = untracked
