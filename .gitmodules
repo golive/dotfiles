@@ -33,3 +33,7 @@
 	path = vim/vim.symlink/bundle/bufonly
 	url = git://github.com/duff/vim-bufonly.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/NERD-tree"]
+	path = vim/vim.symlink/bundle/NERD-tree
+	url = git://github.com/vim-scripts/The-NERD-tree.git
+	ignore = untracked
