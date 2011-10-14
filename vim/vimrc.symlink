@@ -268,6 +268,8 @@ inoremap <D-CR> <ESC>o
 
 "map to NERDtree
 nnoremap <c-t> :NERDTreeToggle<CR>
+" ,p to show current file in the tree
+nmap <leader>p :NERDTreeFind<CR>
 
 "map to bufexplorer
 nnoremap <C-B> :BufExplorer<cr>
