@@ -37,3 +37,7 @@
 	path = vim/vim.symlink/bundle/NERD-tree
 	url = git://github.com/vim-scripts/The-NERD-tree.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/tabular"]
+	path = vim/vim.symlink/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+	ignore = untracked
