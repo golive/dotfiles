@@ -41,3 +41,7 @@
 	path = vim/vim.symlink/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/haml"]
+	path = vim/vim.symlink/bundle/haml
+	url = git@github.com:golive/vim-haml.git
+	ignore = untracked
