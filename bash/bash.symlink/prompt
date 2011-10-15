@@ -11,12 +11,15 @@
 
   NORMAL='\[\033[00m\]'
   BGREEN='\[\033[1;32m\]'
+  BLUE='\[\033[0;34m\]'
   BBLUE='\[\033[1;34m\]'
   GREEN='\[\033[0;32m\]'
   BLACK="\[\033[0;30m\]"
+  BRED="\[\033[1;31m\]"
   RED="\[\033[0;31m\]"
   YELLOW="\[\033[0;33m\]"
-  PURPLE="\[\033[0;35m\]"
+  MAGENTA="\[\033[0;35m\]"
+  BCYAN="\[\033[1;36m\]"
   CYAN="\[\033[0;36m\]"
   WHITE="\[\033[0;37m\]"
   WHITEBOLD="\[\033[1;37m\]"
@@ -36,7 +39,7 @@
 
   rvm_prompt(){
     rvp=$(~/.rvm/bin/rvm-prompt v g) || return
-    echo "${rvp} ";
+    echo "${rvp}";
   }
 
   git_dirty() {
@@ -47,16 +50,16 @@
     else
       if [[ $st == "nothing to commit (working directory clean)" ]]
       then
-        echo "$(git_prompt_info) "
+        echo "${GREEN}\$(git_prompt_info) "
       else
-        echo "$(git_prompt_info)+ "
+        echo "${RED}\$(git_prompt_info) "
       fi
     fi
   }
 
 # /Pretty methods
 
-export PS1="${PURPLE}\$(rvm_prompt)${BGREEN}\$(git_dirty)${BBLUE}[${NORMAL}\w${BBLUE}] ${BBLUE}$ ${NORMAL}"
+export PS1="${MAGENTA}\$(rvm_prompt) $(git_dirty)${BLUE}[${NORMAL}\w${BLUE}]${BLUE}$ ${NORMAL}"
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
 
