@@ -87,6 +87,7 @@ set statusline+=%*
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
+set statusline+=%{fugitive#statusline()}
 
 set statusline+=%=      "left/right separator
 set statusline+=%{StatuslineCurrentHighlight()} "current highlight
@@ -272,10 +273,11 @@ nnoremap <c-t> :NERDTreeToggle<CR>
 nmap <leader>p :NERDTreeFind<CR>
 
 "map to bufexplorer
-nnoremap <C-B> :BufExplorer<cr>
+nnoremap <leader>- :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
 nnoremap <c-f> :CommandTFlush<CR>:CommandT<CR>
+nnoremap <c-b> :CommandTBuffer<CR>
 
 "comment lines as with textmate
 nmap <D-D> :TComment<cr>
