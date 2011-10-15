@@ -292,10 +292,6 @@ nnoremap Y y$
 " -------------------
 " KEYBINDS
 " -------------------
-"Move lines up and down
-map <C-J> :m +1 <CR>
-map <C-K> :m -2 <CR>
-
 " switch between buffers
 map <C-Tab> :bn<CR>
 map <C-s-Tab> :bp<CR>
@@ -314,6 +310,16 @@ inoremap <C-Up> :-15<cr>
 nnoremap <s-Right> v<Right>
 inoremap <s-Right> <Esc><Right>v<Right>
 vnoremap <s-Right> <Right>
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" Move lines up and down
+nmap <C-J> :m +1 <CR>
+nmap <C-K> :m -2 <CR>
+" Move selection up and down
+vmap <C-K> [egv
+vmap <C-J> ]egv
 
 "Duplicate a selection
 vmap D y'>p
