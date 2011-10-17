@@ -36,7 +36,7 @@
 	interactive = auto
 [core]
 	excludesfile = ~/.gitignore
-	editor = mvim -f -c start
+	editor = mvim -f
 [mirror]
 	summary = true
 [branch]
