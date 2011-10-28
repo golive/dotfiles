@@ -50,16 +50,16 @@
     else
       if [[ $st == "nothing to commit (working directory clean)" ]]
       then
-        echo -e "${GREEN:2:10}$(git_prompt_info) "
+        echo "$(git_prompt_info) "
       else
-        echo -e "${RED:2:10}$(git_prompt_info) "
+        echo "$(git_prompt_info)+ "
       fi
     fi
   }
 
 # /Pretty methods
 
-export PS1="${MAGENTA}\$(rvm_prompt) \$(git_dirty)${BLUE}[${NORMAL}\w${BLUE}]${BLUE}$ ${NORMAL}"
+export PS1="${MAGENTA}\$(rvm_prompt) ${GREEN}\$(git_dirty)${BLUE}[${NORMAL}\w${BLUE}]${BLUE}$ ${NORMAL}"
 
 export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
 
