@@ -49,3 +49,7 @@
 	path = vim/vim.symlink/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/easymotion"]
+	path = vim/vim.symlink/bundle/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
+	ignore = untracked
