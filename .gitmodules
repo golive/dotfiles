@@ -53,3 +53,7 @@
 	path = vim/vim.symlink/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/yankring"]
+	path = vim/vim.symlink/bundle/yankring
+	url = git://github.com/vim-scripts/YankRing.vim.git
+	ignore = untracked
