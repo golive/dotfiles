@@ -65,3 +65,7 @@
 	path = vim/vim.symlink/bundle/endwise
 	url = git://github.com/tpope/vim-endwise.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+	ignore = untracked
