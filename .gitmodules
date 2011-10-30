@@ -77,3 +77,7 @@
 	path = vim/vim.symlink/bundle/tcomment
 	url = git://github.com/tomtom/tcomment_vim.git
 	ignore = untracked
+[submodule "vim/vim.symlink/supertab"]
+	path = vim/vim.symlink/supertab
+	url = git://github.com/tsaleh/vim-supertab.git
+	ignore = untracked
