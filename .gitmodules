@@ -2,7 +2,7 @@
 	path = bash/bash.symlink/extra_scripts/bashmarks
 	url = git://github.com/huyng/bashmarks.git
 [submodule "vim/vim.symlink/bundle/snipmate.vim"]
-	path = vim/vim.symlink/bundle/snipmate.vim
+	path = vim/vim.symlink/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
 	ignore = untracked
 [submodule "vim/vim.symlink/bundle/matchit"]
