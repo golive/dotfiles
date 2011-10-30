@@ -105,3 +105,7 @@
 	path = vim/vim.symlink/bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/slime"]
+	path = vim/vim.symlink/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git
+	ignore = untracked
