@@ -69,3 +69,7 @@
 	path = vim/vim.symlink/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/autoclose"]
+	path = vim/vim.symlink/bundle/autoclose
+	url = git://github.com/Townk/vim-autoclose.git
+	ignore = untracked
