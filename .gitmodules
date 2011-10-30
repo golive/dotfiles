@@ -61,3 +61,7 @@
 	path = vim/vim.symlink/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/endwise"]
+	path = vim/vim.symlink/bundle/endwise
+	url = git://github.com/tpope/vim-endwise.git
+	ignore = untracked
