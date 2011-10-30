@@ -97,3 +97,7 @@
 	path = vim/vim.symlink/bundle/scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/rails"]
+	path = vim/vim.symlink/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
+	ignore = untracked
