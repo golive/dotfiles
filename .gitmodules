@@ -93,3 +93,7 @@
 	path = vim/vim.symlink/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/scss-syntax"]
+	path = vim/vim.symlink/bundle/scss-syntax
+	url = git://github.com/cakebaker/scss-syntax.vim.git
+	ignore = untracked
