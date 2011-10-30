@@ -127,6 +127,7 @@ set hlsearch              " hilight searches by default
 set nowrap                " don't wrap lines
 set linebreak             " wrap lines at convenient points
 set autoread              " reload files (no local changes only)
+set gdefault              " assume the /g flag on :s substitutions to replace all matches in a line
 " -------------------------
 " /GRAPHICAL
 " -------------------------
@@ -213,7 +214,7 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
 "stuff to ignore when tab completing
-set wildignore=*.o,*.obj,*~,.git,*.swp,*.jpg,*.png,*.gif
+set wildignore+=*.o,*.obj,*~,.git,*.swp,*.jpg,*.png,*.gif,*/.DS_Store
 
 "display tabs and trailing spaces
 set list
@@ -276,8 +277,8 @@ nmap <leader>p :NERDTreeFind<CR>
 nnoremap <leader>- :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :CommandTFlush<CR>:CommandT<CR>
-nnoremap <c-b> :CommandTBuffer<CR>
+" nnoremap <c-f> :CommandTFlush<CR>:CommandT<CR>
+" nnoremap <c-b> :CommandTBuffer<CR>
 
 "comment lines as with textmate
 nmap <D-D> :TComment<cr>
@@ -297,7 +298,7 @@ map <C-Tab> :bn<CR>
 map <C-s-Tab> :bp<CR>
 
 " save buffer and close
-nmap <Leader>wq :up<CR>:bd<CR>
+" nmap <Leader>wq :up<CR>:bd<CR>
 
 " move faster around up and down
 nnoremap <space> :+15<cr>
@@ -321,10 +322,13 @@ nmap <C-K> :m -2 <CR>
 vmap <C-K> [egv
 vmap <C-J> ]egv
 
-"Duplicate a selection
+" Duplicate a selection
 vmap D y'>p
 
-"one-key indentation
+" Duplicate a line
+nmap <C-d> Yp
+
+" one-key indentation
 nmap <Tab> >>
 nmap <S-Tab> <<
 
@@ -344,6 +348,33 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+
+" fugitive
+map <Leader>gs :Gstatus<CR>
+
+" Center search matches when jumping
+map N Nzz
+map n nzz
+
+" YankRing
+let g:yankring_history_file= '.yankring_history'
+nmap <Leader>y :YRShow<CR>
+
+" CtrlP
+let g:ctrlp_map = '<d-f>'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_highlight_match = [1, 'Statement']
+let g:ctrlp_max_depth = 5
+let g:ctrlp_max_files = 2000
+let g:ctrlp_open_multi = 2
+nmap <d-b> :CtrlPBuffer<CR>
+nmap <d-r> :CtrlPMRUFiles<CR>
+
+" Open a vertical split and switch into it
+" nnoremap <leader>w <C-w>v<C-w>l
 
 " -------------------
 " /KEYBINDS
@@ -438,8 +469,37 @@ autocmd BufNewFile,BufRead *.thor setf ruby
 " :au BufWinEnter * let w:m1=matchadd('Search', '\\%<81v.\\%>77v', -1)
 " :au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\\%>80v.\\+', -1)
 
+" Merge a tab into a split in the previous window
+function! MergeTabs()
+  if tabpagenr() == 1
+    return
+  endif
+  let bufferName = bufname("%")
+  if tabpagenr("$") == tabpagenr()
+    close!
+  else
+    close!
+    tabprev
+  endif
+  vsplit
+  execute "buffer " . bufferName
+endfunction
+
+nmap <C-W>u :call MergeTabs()<CR>
+
 " Local config
 if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
+" For training to use the letters movements
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
