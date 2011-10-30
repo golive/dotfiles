@@ -89,3 +89,7 @@
 	path = vim/vim.symlink/bundle/coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/repeat"]
+	path = vim/vim.symlink/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+	ignore = untracked
