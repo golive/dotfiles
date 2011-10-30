@@ -57,3 +57,7 @@
 	path = vim/vim.symlink/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/surround"]
+	path = vim/vim.symlink/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+	ignore = untracked
