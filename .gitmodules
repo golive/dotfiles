@@ -81,3 +81,11 @@
 	path = vim/vim.symlink/bundle/supertab
 	url = git://github.com/tsaleh/vim-supertab.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/coffe-script"]
+	path = vim/vim.symlink/bundle/coffe-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+	ignore = untracked
+[submodule "vim/vim.symlink/bundle/coffee-script"]
+	path = vim/vim.symlink/bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+	ignore = untracked
