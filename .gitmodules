@@ -113,3 +113,7 @@
 	path = vim/vim.symlink/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/session"]
+	path = vim/vim.symlink/bundle/session
+	url = git://github.com/xolox/vim-session.git
+	ignore = untracked
