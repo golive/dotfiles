@@ -109,3 +109,7 @@
 	path = vim/vim.symlink/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/zencoding"]
+	path = vim/vim.symlink/bundle/zencoding
+	url = git://github.com/mattn/zencoding-vim.git
+	ignore = untracked
