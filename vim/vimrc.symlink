@@ -128,6 +128,8 @@ set nowrap                " don't wrap lines
 set linebreak             " wrap lines at convenient points
 set autoread              " reload files (no local changes only)
 set gdefault              " assume the /g flag on :s substitutions to replace all matches in a line
+" set clipboard=unnamed     " Use the system clipboard by default
+
 " -------------------------
 " /GRAPHICAL
 " -------------------------
@@ -273,16 +275,8 @@ nnoremap <c-t> :NERDTreeToggle<CR>
 " ,p to show current file in the tree
 nmap <leader>p :NERDTreeFind<CR>
 
-"map to bufexplorer
-nnoremap <leader>- :BufExplorer<cr>
-
-"map to fuzzy finder text mate stylez
-" nnoremap <c-f> :CommandTFlush<CR>:CommandT<CR>
-" nnoremap <c-b> :CommandTBuffer<CR>
-
 "comment lines as with textmate
-nmap <D-D> :TComment<cr>
-vmap <D-D> :TComment<cr>
+map <D-D> :TComment<cr>
 
 "map Q to something useful
 noremap Q gq
@@ -326,7 +320,7 @@ vmap <C-J> ]egv
 vmap D y'>p
 
 " Duplicate a line
-nmap <C-d> Yp
+nmap dl Yp
 
 " one-key indentation
 nmap <Tab> >>
@@ -350,6 +344,7 @@ if exists(":Tabularize")
 endif
 
 " fugitive
+map <Leader>ga :Gwrite<CR>
 map <Leader>gs :Gstatus<CR>
 
 " Center search matches when jumping
@@ -359,6 +354,22 @@ map n nzz
 " YankRing
 let g:yankring_history_file= '.yankring_history'
 nmap <Leader>y :YRShow<CR>
+
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
+" Snipmate
+ino <c-j> <c-r>=TriggerSnippet()<cr>
+snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+
+" ZenCoding
+let g:user_zen_settings = {'indentation' : ' ', 'haml' : {'extends' : 'html', 'filters': 'haml'}}
+
+let g:session_directory = '~/.vimsessions'
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+set sessionoptions-=help
 
 " CtrlP
 let g:ctrlp_map = '<d-f>'
@@ -370,8 +381,6 @@ let g:ctrlp_highlight_match = [1, 'Statement']
 let g:ctrlp_max_depth = 5
 let g:ctrlp_max_files = 2000
 let g:ctrlp_open_multi = 2
-nmap <d-b> :CtrlPBuffer<CR>
-nmap <d-r> :CtrlPMRUFiles<CR>
 
 " Open a vertical split and switch into it
 " nnoremap <leader>w <C-w>v<C-w>l
@@ -499,7 +508,9 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
+imap <C-h> <C-o>h
+imap <C-l> <C-o>l

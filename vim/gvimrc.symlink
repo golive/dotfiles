@@ -27,9 +27,11 @@ if has("gui_macvim")
   " Close buffer on Command-Shift-W
   macmenu File.Close\ Window key=<nop>
   map <D-W> :bd<CR>
-  " Find in commandT with Command-f
+  " Don't map some menu options to keys needed for CtrlP
   macmenu Edit.Find.Find\.\.\. key=<nop>
   macmenu Tools.Make key=<nop>
+  nmap <d-b> :CtrlPBuffer<CR>
+  nmap <d-r> :CtrlPMRUFiles<CR>
 endif
 
 " autocmd VimEnter * NERDTree
