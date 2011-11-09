@@ -410,11 +410,6 @@ function! SetCursorPosition()
     endif
 endfunction
 
-" autocmd BufReadPost * call Prova()
-" function! Prova()
-"   " start
-" endfunction
-
 " -------------------
 " AUTO & OTHERS
 " -------------------
@@ -455,7 +450,13 @@ function! s:UpdateNERDTree(stay)
   endif
 endfunction
 
-autocmd BufWritePre * :%s/\s\+$//e
+" Removes trailing spaces preserving two spaces at end of line for markdown
+function! TrimWhiteSpace()
+  %s/\v(^\s+|\s{3,})$//e
+  ''
+endfunction
+
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 " Automatic tabular alignement in insert mode for cucumber tables
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
