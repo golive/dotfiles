@@ -117,3 +117,7 @@
 	path = vim/vim.symlink/bundle/session
 	url = git://github.com/xolox/vim-session.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/bufkill"]
+	path = vim/vim.symlink/bundle/bufkill
+	url = https://github.com/vim-scripts/bufkill.vim.git
+	ignore = untracked
