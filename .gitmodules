@@ -125,3 +125,7 @@
 	path = vim/vim.symlink/bundle/buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
 	ignore = untracked
+[submodule "vim/vim.symlink/bundle/hammer"]
+	path = vim/vim.symlink/bundle/hammer
+	url = git://github.com/robgleeson/hammer.vim.git
+	ignore = untracked
