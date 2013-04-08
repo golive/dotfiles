@@ -1,4 +1,5 @@
-rvm_install_on_use_flag=1
+rvm_install_on_use_flag=0
 rvm_project_rvmrc_default=1
 export rvm_pretty_print_flag=1
 rvm_gemset_create_on_use_flag=1export rvm_path="$HOME/.rvm"
+rvm_configure_env=(CFLAGS="")

@@ -26,12 +26,16 @@ if has("gui_macvim")
   map <D-F> :Ack<space>
   " Close buffer on Command-Shift-W
   macmenu File.Close\ Window key=<nop>
-  map <D-W> :bd<CR>
+  map <D-W> :BD<CR>
   " Don't map some menu options to keys needed for CtrlP
   macmenu Edit.Find.Find\.\.\. key=<nop>
   macmenu Tools.Make key=<nop>
   nmap <d-b> :CtrlPBuffer<CR>
   nmap <d-r> :CtrlPMRUFiles<CR>
+  " Always enter in normal mode on new tab
+  macmenu File.New\ Tab key=<nop>
+  nmap <silent> <D-t> :tabnew<cr>
+  imap <silent> <D-t> <esc>:tabnew<cr>
 endif
 
 " autocmd VimEnter * NERDTree

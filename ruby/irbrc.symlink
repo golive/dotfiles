@@ -3,6 +3,12 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
 
+begin
+  require 'interactive_editor'
+rescue LoadError => err
+  warn "Couldn't load interactive_editor: #{err}"
+end
+
 if IRB.respond_to?(:conf)
   IRB.conf[:SAVE_HISTORY] = 1000
   IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"

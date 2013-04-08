@@ -346,6 +346,12 @@ endif
 " fugitive
 map <Leader>ga :Gwrite<CR>
 map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit -v<CR>
+map <Leader>gd :Gdiff<CR>
+
+" Rails
+nmap <Leader>rm :Rmodel<space>
+nmap <Leader>rc :Rcontroller<space>
 
 " Center search matches when jumping
 map N Nzz
@@ -356,12 +362,13 @@ let g:yankring_history_file= '.yankring_history'
 nmap <Leader>y :YRShow<CR>
 
 " Change Working Directory to that of the current file
-cmap cwd lcd %:p:h
-cmap cd. lcd %:p:h
+" cmap cwd lcd %:p:h
+" cmap cd. lcd %:p:h
 
 " Snipmate
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+execute "source ~/.vim/snippets/support_functions.vim"
 
 " ZenCoding
 let g:user_zen_settings = {'indentation' : ' ', 'haml' : {'extends' : 'html', 'filters': 'haml'}}
@@ -381,6 +388,13 @@ let g:ctrlp_highlight_match = [1, 'Statement']
 let g:ctrlp_max_depth = 5
 let g:ctrlp_max_files = 2000
 let g:ctrlp_open_multi = 2
+
+" Buffergator
+let g:buffergator_suppress_keymaps = 1
+let g:buffergator_autoexpand_on_split = 0
+let g:buffergator_split_size = 12
+let g:buffergator_viewport_split_policy = 'B'
+" let g:buffergator_sort_regime = 'mru'
 
 " Open a vertical split and switch into it
 " nnoremap <leader>w <C-w>v<C-w>l
@@ -452,11 +466,12 @@ endfunction
 
 " Removes trailing spaces preserving two spaces at end of line for markdown
 function! TrimWhiteSpace()
-  %s/\v(^\s+|\s{3,})$//e
-  ''
+  let l:winview = winsaveview()
+  silent! %s/\v(^\s+|\s{3,})$//e
+  call winrestview(l:winview)
 endfunction
 
-autocmd BufWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre *.{rb,html,haml,erb,js,coffee} :call TrimWhiteSpace()
 
 " Automatic tabular alignement in insert mode for cucumber tables
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a

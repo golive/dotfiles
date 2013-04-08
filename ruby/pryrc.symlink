@@ -1,0 +1,35 @@
+def preview_html(content)
+  file = Tempfile.new([nil, '.html'])
+  file.write(content.force_encoding('UTF-8'))
+  file.flush
+  system "open #{file.path}"
+end
+
+begin
+  require 'hirb'
+
+  old_print = Pry.config.print
+  Pry.config.print = proc do |output, value|
+    Hirb::View.view_or_page_output(value) || old_print.call(output, value)
+  end
+rescue LoadError
+  # Missing goodies, bummer
+end
+
+require 'logger'
+
+def loud_logger
+  Hirb.enable
+  set_logger_to Logger.new(STDOUT)
+end
+
+def quiet_logger
+  Hirb.disable
+  set_logger_to nil
+end
+
+def set_logger_to(logger)
+  ActiveRecord::Base.logger = logger
+  ActiveRecord::Base.clear_reloadable_connections!
+end
+
